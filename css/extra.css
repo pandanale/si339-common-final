@@ -1,0 +1,219 @@
+body {
+    background-color: #ADD8E6;
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    padding: 10px;
+    margin: 5px;
+    line-height: 1.6;
+}
+
+header {
+    font-size: 15px;
+}
+
+h1, h2, h3, p {
+    font-family: "Times New Roman, Times, serif";
+    background-color: rgba(255, 255, 255, 0.7); /* White background with 50% opacity */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow to text */
+    padding: 5px; /* Adds some spacing inside the text block */
+    border-radius: 5px; /* Optional: rounds the corners of the background */
+}
+
+h1 {
+    font-size: 1.8em;
+    text-align: center;
+    font-weight: bold;
+    line-height: 4;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: rgb(36, 18, 153); 
+    font-weight: bold;
+    line-height: 3;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: slateblue; 
+    font-weight: bold;
+    line-height: 3;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+}
+
+img {
+    max-width: 100%;
+    border: 5px solid slateblue;
+    padding: 10px;
+    margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;  /* Added transition for smooth scaling */
+}
+
+img:hover {
+    transform: scale(1.05);  /* Image will scale up to 105% of its size when hovered */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    img {
+        transition: none;
+    }
+
+    img:hover {
+        transform: none;
+    }
+
+    img[src*=".gif"] {
+        display: none;
+    }
+}
+
+nav {
+    position: fixed;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav a {
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+    color: rgb(34, 25, 83);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a.current-page {
+    background-color: lavender;
+    color: rgb(78, 66, 153);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.main {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #aaa;
+}
+
+span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    img {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .image-grid {
+        gap: 10px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    header {
+        font-size: 18px; /* slightly larger than mobile */
+    }
+
+    h1 {
+        font-size: 2.2em; /* larger size for tablet */
+    }
+
+    h2 {
+        font-size: 1.8em; /* larger size for tablet */
+    }
+
+    h3 {
+        font-size: 1.4em; /* larger size for tablet */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablet */
+        gap: 20px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row; /* horizontal nav for tablet */
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 10px; /* larger padding for better touch targets */
+        margin: 0 10px; /* space out links more */
+    }
+
+    .main {
+        padding: 30px; /* more padding for larger screens */
+    }
+}
+
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -9999;
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    z-index: 9999;
+    padding: 10px;
+    background-color: #ADD8E6; 
+    color: black; /* font color */
+    /* text-decoration: none; optional */
+    /* font-size: 1em; optional, adjust as needed */
+}
+
+.background-image {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
+    filter: grayscale(70%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

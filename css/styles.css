@@ -1,0 +1,238 @@
+/* CSS Reset for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body, html {
+    height: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.85; /* Adjusted for better visibility */
+    filter: grayscale(10%); /* Grayscale for stylistic effect */
+}
+
+/* Ensure text is readable over the background image */
+main {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+
+/* Image styles */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Center images */
+    opacity: 1; /* Full opacity for images */
+}
+
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -9999;
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    z-index: 9999;
+    padding: 10px;
+    background-color: #ADD8E6; 
+    color: black; /* font color */
+    /* text-decoration: none; optional */
+    /* font-size: 1em; optional, adjust as needed */
+}
+
+ /* Navigation styles */
+nav {
+    position: fixed;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    float: right;
+    margin: 0 0 10px 10px;
+    /* top: 0; */
+    z-index: 10000; /* Ensure nav is above other elements */
+    background: rgba(255, 255, 255, 0.95); /* Assuming you want a semi-transparent white background */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Reset default margin */
+}
+
+nav ul li {
+    display: inline; /* Inline display for horizontal nav items */
+    margin-right: 10px; /* Space between nav items */
+}
+
+nav a {
+    padding: 5px;
+    margin: 10px;
+    text-decoration: none;
+    color: rgb(34, 25, 83);
+    background: transparent; /* Reset background for non-active links */
+    font-weight: normal; /* Reset font weight for non-active links */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav a.current-page {
+    background-color: lavender;
+    color: rgb(78, 66, 153);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* MOBILE VIEW */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 18px; /* Larger font size for desktop */
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 5px;
+    }
+
+    .gallery-grid img, .gallery-grid video {
+        width: 70%; /* Ensure that GIFs and images take full width of their container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .gallery-grid figure {
+        margin: 0;
+        display: grid;
+        gap: 10px;
+    }
+    .gallery-grid figure:hover{
+        transform: scale(1.05);  /* Image will scale up to 105% of its size when hovered */
+    }
+
+    .gallery-grid figcaption {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }
+}
+
+/* TABLET VIEW */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 18px; /* Larger font size for desktop */
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+
+    .gallery-grid img, .gallery-grid video {
+        width: 80%; /* Ensure that GIFs and images take full width of their container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .gallery-grid figure {
+        margin: 0;
+        display: grid;
+        gap: 20px;
+    }
+    .gallery-grid figure:hover{
+        transform: scale(1.05);  /* Image will scale up to 105% of its size when hovered */
+    }
+
+    .gallery-grid figcaption {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }
+
+}
+
+/* DESKTOP VIEW */
+@media only screen and (min-width: 1025px) {
+    body {
+        font-size: 18px; /* Larger font size for desktop */
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 10px;
+    }
+
+    .gallery-grid img, .gallery-grid video {
+        width: 100%; /* Ensure that GIFs and images take full width of their container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .gallery-grid figure {
+        margin: 0;
+        display: grid;
+        gap: 20px;
+    }
+    .gallery-grid figure:hover{
+        transform: scale(1.05);  /* Image will scale up to 105% of its size when hovered */
+    }
+
+    .gallery-grid figcaption {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-grid figure:hover {
+        transform: none; /* Disable the scaling effect for users who prefer reduced motion */
+    }
+}
+
+#theme-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #f688a1; /* Pink background */
+    color: black; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+#theme-toggle-btn:hover {
+    background-color: #f55b7f; /* Darker pink for hover effect */
+}
